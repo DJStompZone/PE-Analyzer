@@ -1,10 +1,11 @@
 import pytest
 from pe_analyzer import PEAnalyzer
 import json
+import os
 
 
 def test_pe_analyzer():
-    file_path = "C:/Windows/System32/cmd.exe"  # Replace with a valid path to a PE file for testing
+    file_path = os.path.join(os.path.dirname(__file__), 'testBin.exe')
     analyzer = PEAnalyzer(file_path)
     analysis_data = analyzer.analyze()
     parsed_data = json.loads(analysis_data)
